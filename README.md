@@ -34,6 +34,8 @@ Example :
 route add webservices.example.com mask 255.255.255.255 10.11.12.13
 ```
 
+The index.php file is situated at /{YourProject}/public/index.php
+
 ## Built With
 
 * [Symfony](https://symfony.com/doc/current/index.html#gsc.tab=0) - The web framework used
