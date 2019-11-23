@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Alcools Symfony{%  endblock %}
+{% block body %}
+    {% if cocktails %}
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th> Cocktail Title </th>
+                <th> Description </th>
+                <th> Actions </th>
+            </tr>
+            </thead>
+            <tbody>
+        {% for cocktail in cocktails %}
+            <tr style="height:100px">
+                <td><p>{{ cocktail.strDrink }}</p></td>
+
+                <td class="w-25">
+                    <img class="img-fluid rounded" style="max-height: 150px" src="{{ cocktail.strDrinkThumb }}"/>
+                </td>
+                <td><a href="/cocktail/{{ cocktail.idDrink }}" class="btn btn-primary">See</a></td>
+            </tr>
+        {% endfor %}
+            </tbody>
+        </table>
+    <a href="/">Go Back</a>
+    {% endif %}
+{%  endblock %}

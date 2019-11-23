@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Alcools Symfony{%  endblock %}
+{% block body %}
+    <h1>Alcools</h1>
+    {% if alcools %}
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th> Alcohol Title </th>
+                <th> Actions </th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for alcool in alcools %}
+                    <tr>
+                        <td>{{ alcool.title }}</td>
+                        <td><a href="/alcool/{{ alcool.id }}" class="btn btn-primary">See</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No alcohol to display</p>
+    {% endif %}
+{%  endblock %}

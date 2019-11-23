@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Alcools Symfony{%  endblock %}
+{% block body %}
+    <h1>Alcools</h1>
+    {% if categories %}
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th> Category Title </th>
+                <th> Description </th>
+                <th> Actions </th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for categ in categories %}
+                    <tr>
+                        <td>{{ categ.libelle }}</td>
+                        <td> {{ categ.description }}</td>
+                        <td><a href="/category/{{ categ.id }}" class="btn btn-primary">See</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No Categories to display</p>
+    {% endif %}
+{%  endblock %}
