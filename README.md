@@ -40,7 +40,7 @@ Remember that Symfony will redirect from the project root URL, which means the s
 ## Built With
 
 * [Symfony](https://symfony.com/doc/current/index.html#gsc.tab=0) - The web framework used
-* [The Cocktail DB](https://www.thecocktaildb.com/api.php) - The database used
+* [The Cocktail DB](https://www.thecocktaildb.com/api.php) - The API used
 
 ## Authors
 
