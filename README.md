@@ -35,6 +35,7 @@ route add webservices.example.com mask 255.255.255.255 10.11.12.13
 ```
 
 The index.php file is situated at /{YourProject}/public/index.php
+Remember that Symfony will redirect from the project root URL, which means the site won't work correctly without a well setup DNS
 
 ## Built With
 
