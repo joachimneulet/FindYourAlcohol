@@ -1,6 +1,7 @@
 # Find your Alcohol
 
 Find your alcohol is a website that uses an open source database to reference existing alcohols and cocktails
+This site is developed under a local test server (no URL yet)
 
 ## Getting Started
 
