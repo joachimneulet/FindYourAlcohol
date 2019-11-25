@@ -31,6 +31,7 @@ class AlcoolController extends Controller{
 
     /**
      * @Route("/cocktail/{id}", name="cocktail_show")
+     * returns All cocktail details from it's ID
      */
     public function showCoktailDetailsFromId($id){
         $cocktail = $this->getDoctrine()->getRepository(Category::class)->getCoktailDetailsFromId($id);
@@ -40,6 +41,8 @@ class AlcoolController extends Controller{
         $cocktailInstructions = $cocktailDetails->{'strInstructions'};
         $cocktailGlass = $cocktailDetails->{'strGlass'};
         $cocktailIngredients = [];
+        var_dump($cocktailDetails);
+        //A cocktail can have up to 15 ingredients
         for ($i = 1; $i <= 15; $i++) {
             array_push($cocktailIngredients, $cocktailDetails->{'strIngredient'.$i});
         }

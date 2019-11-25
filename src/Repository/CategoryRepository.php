@@ -21,30 +21,30 @@ class CategoryRepository extends ServiceEntityRepository
 
     public function getAlcoolFromCategory($id){
         $conn = $this->getEntityManager()->getConnection();
-
         $sql = '
         SELECT * FROM Alcool a
         WHERE a.category = :id
         ';
         $stmt = $conn->prepare($sql);
         $stmt->execute(['id' => $id]);
-
         // returns an array of arrays (i.e. a raw data set)
         return $stmt->fetchAll();
     }
 
+    /**
+     * @param $id
+     * @return Cocktails in the category from it's ID
+     * @throws \Doctrine\DBAL\DBALException
+     */
     public function getCoktailFromCategory($id){
         $conn = $this->getEntityManager()->getConnection();
-
         $sql = '
         SELECT libelle FROM Category c
         WHERE c.id = :id
         ';
-
         $stmt = $conn->prepare($sql);
         $stmt->execute(['id' => $id]);
         $libelle = $stmt->fetch();
-
         $json = file_get_contents('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i='.$libelle['libelle']);
         $obj = json_decode($json);
         return $obj->drinks;
