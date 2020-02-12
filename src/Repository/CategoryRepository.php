@@ -50,12 +50,7 @@ class CategoryRepository extends ServiceEntityRepository
         return $obj->drinks;
     }
 
-    public function getCoktailDetailsFromId($id){
 
-        $json = file_get_contents('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i='.$id);
-        $obj = json_decode($json);
-        return $obj;
-    }
 
     // /**
     //  * @return Category[] Returns an array of Category objects

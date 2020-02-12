@@ -3,27 +3,30 @@
 {% block title %}Alcools Symfony{%  endblock %}
 {% block body %}
     {% if cocktails %}
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th> Cocktail Title </th>
-                <th> Description </th>
-                <th> Actions </th>
-            </tr>
-            </thead>
-            <tbody>
-        {% for cocktail in cocktails %}
-            <tr style="height:100px">
-                <td><p>{{ cocktail.strDrink }}</p></td>
-
-                <td class="w-25">
-                    <img class="img-fluid rounded" style="max-height: 150px" src="{{ cocktail.strDrinkThumb }}"/>
-                </td>
-                <td><a href="/cocktail/{{ cocktail.idDrink }}" class="btn btn-primary">See</a></td>
-            </tr>
-        {% endfor %}
-            </tbody>
-        </table>
+        <div class="album py-5 bg-dark">
+            <div class="container">
+                <div class="row">
+                {% for cocktail in cocktails %}
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img class="card-img-top" src="{{ cocktail.strDrinkThumb }}" alt="{{ cocktail.strDrink }}"/>
+                            <div class="card-body">
+                                <p class="card-text">{{ cocktail.strDrink }}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="/cocktail/{{ cocktail.idDrink }}" class="btn btn-primary">
+                                            View
+                                        </a>
+                                    </div>
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
     <a href="/">Go Back</a>
     {% endif %}
 {%  endblock %}

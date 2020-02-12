@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Alcools Symfony{%  endblock %}
+{% block body %}
+    <div class="text-white rounded bg-dark">
+        {% for ingredient in ingredients %}
+            {% if ingredient is not empty %}
+                <p>{{ ingredient }}</p>
+                <br/>
+            {% endif %}
+        {% endfor %}
+    </div>
+{%  endblock %}

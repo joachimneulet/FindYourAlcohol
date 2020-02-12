@@ -1,9 +1,10 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-3">
     <div class="container">
-        <a href="#" class="navbar-brand">Test Symfony</a>
+        <a href="{{ url('index') }}" class="navbar-brand">Find Your Alcohol</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
             <span class="navbar-toggle-icon"></span>
         </button>
+
     </div>
 
     <div class="collapse navbar-collapse" id="mobile-nav">
@@ -14,9 +15,20 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="../save" class="nav-link">
-                    Find a Cocktail
+                <a href="/category" class="nav-link">
+                    Categories
                 </a>
+            </li>
+            <form class="form-inline" method="post" action="{{url('searchCocktail')}}">
+                <i class="fas fa-search" aria-hidden="false"></i>
+                <input name="_ingredient" class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
+                       aria-label="Search">
+            </form>
+            <li class="nav-item">
+                <a class="btn btn-outline-success" href="/login">Sign In</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-outline-success" href="/register">Register</a>
             </li>
         </ul>
     </div>

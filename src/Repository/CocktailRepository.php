@@ -19,6 +19,40 @@ class CocktailRepository extends ServiceEntityRepository
         parent::__construct($registry, Cocktail::class);
     }
 
+    public function getCoktailDetailsFromId($id){
+
+        $json = file_get_contents('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i='.$id);
+        $obj = json_decode($json);
+        return $obj;
+    }
+
+    public function getCoktailDetailsFromName($name){
+
+        $json = file_get_contents('https://www.thecocktaildb.com/api/json/v1/1/search.php?i='.$name);
+        $obj = json_decode($json);
+        return $obj;
+    }
+
+    public function getCoktailFromIngredient($name){
+
+        $json = file_get_contents('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i='.$name);
+        $obj = json_decode($json);
+        return $obj->drinks;
+    }
+
+    public function getIngredients(){
+        $json = file_get_contents('https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list');
+        $obj = json_decode($json);
+        return $obj->drinks;
+    }
+
+    public function getIngredientIDfromName($name){
+        $nameURL = str_replace(" ", "%20", $name);
+        $json = file_get_contents('https://www.thecocktaildb.com/api/json/v1/1/search.php?i='.$nameURL);
+        $obj = json_decode($json);
+        return $obj->ingredients;
+    }
+
     // /**
     //  * @return Cocktail[] Returns an array of Cocktail objects
     //  */
